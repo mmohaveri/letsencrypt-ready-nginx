@@ -37,6 +37,21 @@ mmohaveri/letsencrypt-ready-nginx:1.0.0 certbot --nginx
 
 Follow the process and you'll get the certificates that you want.
 
+If you wish to run this command automatically, you can run certbot using the following command:
+
+```bash
+certbot register -m <your email address> --agree-tos --non-interactive
+```
+
+This will register your email address for certbot emergency renewal process. Keep in mind that running this command with
+`--agree-tos` means you're accepting lets encrypt's Term Of Service agreement.
+
+After that you can run following command to obtain certificates:
+
+```bash
+certbot --nginx --domains <your domain> --non-interactive
+```
+
 ### Running the nginx service
 
 After you've obtained needed certificates, just configure your virtual host file as you want and run:
